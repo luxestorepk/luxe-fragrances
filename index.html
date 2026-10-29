@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUXE FRAGRANCES | Maison de Parfum</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@200;400;600;700&family=Montserrat:wght@200;300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#D4AF37;--gold2:#E8C765;--black:#070707;--cream:#FFFEFB;--wa:#25D366}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Montserrat',sans-serif;background:var(--cream);color:#111}
+.header{position:fixed;top:0;width:100%;background:rgba(7,7,7,0.88);backdrop-filter:blur(30px);z-index:1000;padding:24px 60px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(212,175,55,0.15)}
+.logo{font-family:'Cinzel',serif;font-size:24px;letter-spacing:12px;color:var(--gold);font-weight:200}
+.logo b{font-weight:700;color:#fff;letter-spacing:8px}
+.nav{font-size:9px;letter-spacing:5px;color:rgba(255,255,255,0.45)}
+
+.hero{height:100vh;position:relative;background:#000;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=2200&q=80');background-size:cover;background-position:center;opacity:0.55}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%, transparent 20%, rgba(0,0,0,0.8) 90%), linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 40%, rgba(0,0,0,0.85) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:1000px;padding:20px}
+.hero-eyebrow{font-size:10px;letter-spacing:10px;color:var(--gold2);border:1px solid rgba(212,175,55,0.25);display:inline-block;padding:10px 28px;margin-bottom:30px}
+.hero h1{font-family:'Cinzel',serif;font-size:84px;letter-spacing:22px;line-height:0.9;color:#fff;font-weight:200}
+.hero h1 i{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;color:var(--gold2);letter-spacing:4px;font-size:72px;display:block;margin-top:12px}
+.hero-line{width:1px;height:80px;background:linear-gradient(to bottom, var(--gold), transparent);margin:32px auto}
+.hero-desc{font-family:'Cormorant Garamond',serif;font-size:22px;color:rgba(255,255,255,0.6);font-style:italic;letter-spacing:1px}
+.hero-btns{margin-top:44px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-gold{background:var(--gold);color:#000;padding:20px 48px;text-decoration:none;font-size:10px;letter-spacing:5px;font-weight:700;transition:0.6s;position:relative;overflow:hidden}
+.btn-gold::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);transition:0.6s}
+.btn-gold:hover::before{left:100%}
+.btn-wa{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.2);padding:20px 48px;text-decoration:none;font-size:10px;letter-spacing:4px;transition:0.5s}
+.btn-wa:hover{background:var(--wa);border-color:var(--wa)}
+
+.divider{width:1px;height:90px;background:linear-gradient(to bottom, transparent, var(--gold), transparent);margin:90px auto}
+.title{text-align:center;padding:0 20px 60px}
+.title h2{font-family:'Cinzel',serif;font-size:52px;letter-spacing:20px;font-weight:200;color:var(--black)}
+.title p{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:rgba(0,0,0,0.35);margin-top:12px;letter-spacing:2px}
+
+.products{max-width:1440px;margin:0 auto;padding:0 50px 120px;display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+.card{background:#fff;position:relative;transition:all 0.8s cubic-bezier(0.23,1,0.32,1);border:1px solid rgba(0,0,0,0.03);overflow:hidden}
+.card::after{content:'';position:absolute;inset:0;border:1px solid var(--gold);opacity:0;transition:0.6s;pointer-events:none}
+.card:hover{transform:translateY(-16px);box-shadow:0 50px 120px rgba(0,0,0,0.15)}
+.card:hover::after{opacity:0.18}
+.card-top{height:500px;background:radial-gradient(ellipse at 50% 0%, #FFF6E5 0%, #FFFEFB 70%);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.card-top img{width:100%;height:100%;object-fit:contain;padding:42px;transition:1s cubic-bezier(0.23,1,0.32,1)}
+.card:hover .card-top img{transform:scale(1.12) rotate(1deg)}
+.badge{position:absolute;top:24px;left:24px;background:var(--black);color:var(--gold);font-size:7.5px;letter-spacing:4px;padding:8px 16px;z-index:2}
+.badge.gold{background:linear-gradient(135deg, var(--gold), var(--gold2));color:#000;font-weight:700}
+.badge.rose{background:#1a0a0f;color:#ffb3d1}
+.info{text-align:center;padding:36px 28px 32px;background:#fff;position:relative}
+.info h3{font-family:'Cinzel',serif;font-size:16px;letter-spacing:6px;font-weight:600;color:var(--black)}
+.info .sub{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:4px;color:rgba(0,0,0,0.4);margin-top:8px;font-weight:400}
+.info .notes{font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:rgba(0,0,0,0.35);margin-top:12px;letter-spacing:1px;border-top:1px solid rgba(0,0,0,0.06);padding-top:12px;display:inline-block}
+.price{margin-top:20px;font-family:'Cinzel',serif;font-size:20px;color:var(--gold);letter-spacing:1px}
+.price em{font-family:'Montserrat';font-style:normal;font-size:8.5px;color:rgba(0,0,0,0.35);letter-spacing:3px;display:block;margin-top:8px;font-weight:300;line-height:1.5}
+.order{display:inline-block;margin-top:24px;background:var(--black);color:var(--gold);text-decoration:none;font-size:9px;letter-spacing:4px;padding:14px 36px;border:1px solid var(--black);transition:0.5s;font-weight:600}
+.order:hover{background:var(--wa);border-color:var(--wa);color:#fff;transform:translateY(-1px)}
+
+.footer{background:var(--black);padding:100px 30px 50px;text-align:center;position:relative;overflow:hidden}
+.footer-glow{position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)}
+.footer h2{font-family:'Cinzel',serif;font-size:40px;letter-spacing:22px;color:var(--gold);font-weight:200;position:relative}
+.footer-links{margin-top:32px;display:flex;justify-content:center;gap:60px;flex-wrap:wrap;font-size:10px;letter-spacing:4px;color:rgba(255,255,255,0.4);position:relative}
+.footer a{color:var(--gold);text-decoration:none}
+.big-wa{margin-top:40px;display:inline-block;background:linear-gradient(135deg, #25D366, #128C7E);color:#fff;padding:20px 52px;border-radius:60px;text-decoration:none;font-size:11px;letter-spacing:4px;font-weight:700;box-shadow:0 18px 40px rgba(37,211,102,0.3);position:relative;transition:0.4s}
+.big-wa:hover{transform:translateY(-2px);box-shadow:0 22px 50px rgba(37,211,102,0.4)}
+
+.chat-btn{position:fixed;bottom:32px;right:104px;background:linear-gradient(135deg, var(--gold), var(--gold2));width:66px;height:66px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999;box-shadow:0 14px 36px rgba(212,175,55,0.45);font-size:24px;transition:0.4s}
+.chat-btn:hover{transform:scale(1.08) rotate(5deg)}
+.wa-float{position:fixed;bottom:32px;right:32px;background:linear-gradient(135deg, #25D366, #128C7E);width:66px;height:66px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:999;box-shadow:0 14px 36px rgba(37,211,102,0.45);text-decoration:none;font-size:28px;transition:0.4s}
+.wa-float:hover{transform:scale(1.08)}
+
+.chat-box{position:fixed;bottom:114px;right:32px;width:400px;height:560px;background:#FFFEFB;border-radius:20px;box-shadow:0 40px 100px rgba(0,0,0,0.35);z-index:998;display:none;flex-direction:column;overflow:hidden;border:1px solid rgba(212,175,55,0.18)}
+.chat-head{background:linear-gradient(135deg, var(--black), #1a1a1a);color:var(--gold);padding:20px 24px;font-family:'Cinzel',serif;letter-spacing:4px;display:flex;justify-content:space-between;font-size:11px;align-items:center}
+.chat-head span:last-child{font-family:Montserrat;cursor:pointer;background:rgba(255,255,255,0.1);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.chat-msgs{flex:1;padding:22px;overflow-y:auto;background:radial-gradient(ellipse at top, #FFF9EF 0%, #FFFEFB 100%)}
+.msg{margin-bottom:14px;padding:13px 18px;border-radius:16px;font-size:12px;line-height:1.7;max-width:86%;box-shadow:0 4px 16px rgba(0,0,0,0.04)}
+.bot{background:#fff;border:1px solid rgba(0,0,0,0.05);font-family:'Montserrat'}
+.user{background:var(--black);color:#F5E6C8;margin-left:auto;font-weight:400}
+.quick{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+.quick span{background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.2);padding:6px 12px;border-radius:20px;font-size:9px;letter-spacing:1px;cursor:pointer;color:var(--black)}
+.chat-input{display:flex;padding:16px;background:#fff;border-top:1px solid rgba(0,0,0,0.06);gap:10px;align-items:center}
+.chat-input input{flex:1;border:1px solid rgba(0,0,0,0.08);outline:none;font-size:12px;padding:12px 16px;border-radius:30px;background:#FFFEFB}
+.chat-input button{background:var(--black);color:var(--gold);border:none;padding:12px 20px;border-radius:30px;font-weight:700;font-size:10px;cursor:pointer;letter-spacing:1px}
+
+@media(max-width:1200px){.products{grid-template-columns:1fr 1fr;gap:32px;padding:0 30px 100px}.hero h1{font-size:64px}}
+@media(max-width:640px){.products{grid-template-columns:1fr;padding:0 20px 80px}.hero h1{font-size:40px;letter-spacing:10px}.hero h1 i{font-size:36px}.header{padding:20px 24px}.chat-box{width:92%;right:4%;height:75vh;bottom:100px}}
+</style>
+</head>
+<body>
+
+<div class="header"><div class="logo"><b>LUXE</b> FRAGRANCES</div><div class="nav">MAISON DE PARFUM • 03716649231</div></div>
+
+<div class="hero">
+<div class="hero-bg"></div><div class="hero-overlay"></div>
+<div class="hero-content">
+<div class="hero-eyebrow">MAISON DE PARFUM • EST. 2026 • PARIS • DUBAI • LAHORE</div>
+<h1>SCENT <i>of eternity</i></h1>
+<div class="hero-line"></div>
+<div class="hero-desc">French artistry, Arabian soul — bottled for legends</div>
+<div class="hero-btns">
+<a href="#collection" class="btn-gold">EXPLORE ATELIER</a>
+<a href="https://wa.me/923716649231?text=Salam%20LUXE%20Fragrances!%20Luxury%20perfumes%20dekhne%20hain" class="btn-wa">WHATSAPP • 03716649231</a>
+</div>
+</div>
+</div>
+
+<div class="divider"></div>
+<div class="title" id="collection"><h2>ATELIER</h2><p>six signature essences • extrait de parfum</p></div>
+
+<div class="products">
+
+<div class="card">
+<div class="card-top"><div class="badge">SIGNATURE NOIR</div><img src="perfume1.jpg" alt="Noir Elixir"></div>
+<div class="info"><h3>NOIR ELIXIR</h3><div class="sub">POUR HOMME • EXTRAIT 30%</div><div class="notes">Oud • Amber • Black Pepper • Leather</div><div class="price">PKR 6,500<em>100ML • 18H+ LASTING • EXTRAIT DE PARFUM<br>FOR NIGHT • WINTER • MEETINGS</em></div><a class="order" href="https://wa.me/923716649231?text=Salam!%20NOIR%20ELIXIR%20(Pour%20Homme)%20PKR%206,500%20order%20karna%20hai">ORDER ON WHATSAPP • 03716649231</a></div>
+</div>
+
+<div class="card">
+<div class="card-top"><div class="badge gold">FEMME ICON</div><img src="perfume2.jpg" alt="Velvet Rose"></div>
+<div class="info"><h3>VELVET ROSE</h3><div class="sub">POUR FEMME • EXTRAIT 28%</div><div class="notes">Bulgarian Rose • Vanilla • White Musk</div><div class="price">PKR 7,200<em>100ML • 14H LASTING • BRIDAL EDITION<br>FOR DATE • WEDDING • EVENING</em></div><a class="order" href="https://wa.me/923716649231?text=Salam!%20VELVET%20ROSE%20(Pour%20Femme)%20PKR%207,200%20order%20karna%20hai">ORDER ON WHATSAPP • 03716649231</a></div>
+</div>
+
+<div class="card">
+<div class="card-top"><div class="badge" style="background:linear-gradient(135deg,#3a2a0a,#D4AF37);color:#fff">ROYAL OUD</div><img src="perfume3.jpg" alt="Oud Al Sultan"></div>
+<div class="info"><h3>OUD AL SULTAN</h3><div class="sub">PURE OUD • UNISEX • 40% OIL</div><div class="notes">Dehnal Oud • Saffron • Smoked Leather</div><div class="price">PKR 8,500<em>50ML • PURE OUD OIL • 24H+ LASTING<br>FOR ROYALTY • JUMMAH • EID</em></div><a class="order" href="https://wa.me/923716649231?text=Salam!%20OUD%20AL%20SULTAN%20Pure%20Oud%20PKR%208,500%20order%20karna%20hai">ORDER ON WHATSAPP • 03716649231</a></div>
+</div>
+
+<div class="card">
+<div class="card-top"><img src="perfume4.jpg" alt="Blanc Aura"></div>
+<div class="info"><h3>BLANC AURA</h3><div class="sub">COLOGNE FRAÎCHE • UNISEX</div><div class="notes">Bergamot • Jasmine • White Musk</div><div class="price">PKR 5,800<em>100ML • 10H LASTING • OFFICE SCENT<br>FOR DAILY • SUMMER • OFFICE</em></div><a class="order" href="https://wa.me/923716649231?text=Salam!%20BLANC%20AURA%20PKR%205,800%20order%20karna%20hai">ORDER ON WHATSAPP • 03716649231</a></div>
+</div>
+
+<div class="card">
+<div class="card-top"><div class="badge rose">SENSUAL</div><img src="perfume5.jpg" alt="Nude Euphoria"></div>
+<div class="info"><h3>NUDE EUPHORIA</h3><div class="sub">MUSK INTENSE • POUR FEMME</div><div class="notes">Peony • Sandalwood • Golden Amber</div><div class="price">PKR 6,800<em>100ML • 16H LASTING • COMPLIMENT BEAST<br>FOR PARTY • CONFIDENCE • ICON</em></div><a class="order" href="https://wa.me/923716649231?text=Salam!%20NUDE%20EUPHORIA%20PKR%206,800%20order%20karna%20hai">ORDER ON WHATSAPP • 03716649231</a></div>
+</div>
+
+<div class="card">
+<div class="card-top"><div class="badge" style="background:#0f0f0f;color:var(--gold)">NIGHT BEAST</div><img src="perfume6.jpg" alt="Terra Intense"></div>
+<div class="info"><h3>TERRA INTENSE</h3><div class="sub">BOIS INTENSE • POUR HOMME</div><div class="notes">Tobacco • Cognac • Vetiver • Cinnamon</div><div class="price">PKR 7,500<em>100ML • 20H+ LASTING • BEAST MODE<br>FOR CLUB • WINTER • DOMINANCE</em></div><a class="order" href="https://wa.me/923716649231?text=Salam!%20TERRA%20INTENSE%20PKR%207,500%20order%20karna%20hai">ORDER ON WHATSAPP • 03716649231</a></div>
+</div>
+
+</div>
+
+<div class="footer">
+<div class="footer-glow"></div>
+<h2>LUXE FRAGRANCES</h2>
+<div class="footer-links"><span>PARIS • DUBAI • MULTAN • LAHORE</span><span>📱 03716649231</span><span>EXTRAIT DE PARFUM</span></div>
+<a href="https://wa.me/923716649231?text=Salam%20LUXE%20Fragrances!%20Order%20karna%20hai" class="big-wa">💬 WHATSAPP • 03716649231 • ORDER NOW</a>
+<p style="margin-top:45px;font-size:8.5px;opacity:0.2;letter-spacing:5px;position:relative">© 2026 LUXE FRAGRANCES • MAISON DE PARFUM • CRAFTED FOR LEGENDS</p>
+</div>
+
+<div class="chat-btn" onclick="toggleChat()">✨</div>
+<a href="https://wa.me/923716649231?text=Salam%20LUXE%20Fragrances!%20Luxury%20perfume%20chahiye" class="wa-float">💬</a>
+
+<div class="chat-box" id="chatBox">
+<div class="chat-head"><span>LUXE CONCIERGE ✨</span><span onclick="toggleChat()">✕</span></div>
+<div class="chat-msgs" id="chatMsgs">
+<div class="msg bot">Welcome to LUXE FRAGRANCES 👑<br><br>Je suis votre concierge parfumeur.<br><br><b>Puchein:</b><br>• Price? • Kitne ml?<br>• Konsa best hai? • Lasting?<br>• Gift ke liye? • Office ke liye?<br>• Original? • Delivery?<br><br>📱 03716649231<br>
+<div class="quick">
+<span onclick="askQuick('price list')">Price List</span>
+<span onclick="askQuick('best for men')">Best for Men</span>
+<span onclick="askQuick('best for women')">Best for Women</span>
+<span onclick="askQuick('lasting kitni hai')">Lasting?</span>
+<span onclick="askQuick('office ke liye konsa')">Office Scent</span>
+</div>
+</div>
+</div>
+<div class="chat-input"><input id="chatInput" placeholder="Ask about scent, price, lasting..." onkeypress="if(event.key==='Enter') sendMsg()"><button onclick="sendMsg()">SEND</button></div>
+</div>
+
+<script>
+function toggleChat(){let b=document.getElementById('chatBox');b.style.display=b.style.display==='flex'?'none':'flex'}
+function askQuick(t){document.getElementById('chatInput').value=t;sendMsg();}
+function sendMsg(){
+ let inp=document.getElementById('chatInput');let txt=inp.value.trim();if(!txt)return;
+ let box=document.getElementById('chatMsgs');box.innerHTML+=`<div class="msg user">${txt}</div>`;inp.value='';
+ setTimeout(()=>{
+  let q=txt.toLowerCase(),r="";
+  
+  if(q.includes('price')||q.includes('kitne')||q.includes('cost')||q.includes('list')){
+    r="💎 <b>LUXE Price List (Extrait):</b><br><br>• <b>NOIR ELIXIR</b> (Men) - PKR 6,500 - 100ML - 18H+<br>• <b>VELVET ROSE</b> (Women) - PKR 7,200 - 100ML - 14H - Bridal<br>• <b>OUD AL SULTAN</b> (Unisex) - PKR 8,500 - 50ML Pure Oud - 24H+<br>• <b>BLANC AURA</b> (Unisex) - PKR 5,800 - 100ML - Daily Office<br>• <b>NUDE EUPHORIA</b> (Women) - PKR 6,800 - 100ML - Party<br>• <b>TERRA INTENSE</b> (Men) - PKR 7,500 - 100ML - Night Beast<br><br>🎁 Free delivery above PKR 10,000";
+  }
+  else if(q.includes('men')||q.includes('gents')||q.includes('ladka')||q.includes('boy')){
+    r="👔 <b>Best for Men:</b><br><br>1. <b>TERRA INTENSE</b> - PKR 7,500 - Sabse strong, club/parties, 20H+ lasting, compliment beast<br>2. <b>NOIR ELIXIR</b> - PKR 6,500 - Office/meetings ke liye classy, oud amber<br>3. <b>OUD AL SULTAN</b> - PKR 8,500 - Royal, Jummah/Eid, pure oud<br><br>Most sold: TERRA INTENSE 🔥";
+  }
+  else if(q.includes('women')||q.includes('ladies')||q.includes('girl')||q.includes('female')){
+    r="👩 <b>Best for Women:</b><br><br>1. <b>VELVET ROSE</b> - PKR 7,200 - Bridal, romantic, rose vanilla, most loved<br>2. <b>NUDE EUPHORIA</b> - PKR 6,800 - Party, confidence, peony sandalwood<br>3. <b>BLANC AURA</b> - PKR 5,800 - Daily office, fresh jasmine<br><br>Most sold: VELVET ROSE 🌹";
+  }
+  else if(q.includes('lasting')||q.includes('kitni der')||q.includes('long')||q.includes('stay')){
+    r="⏳ <b>Lasting - Extrait de Parfum (30-40% oil):</b><br><br>• OUD AL SULTAN: 24H+ (pure oud oil)<br>• TERRA INTENSE: 20H+ (beast mode)<br>• NOIR ELIXIR: 18H+<br>• NUDE EUPHORIA: 16H<br>• VELVET ROSE: 14H<br>• BLANC AURA: 10H (fresh)<br><br>💡 Kapdo par 2-3 din tak rehti hai! French formula, Dubai oils.";
+  }
+  else if(q.includes('office')||q.includes('daily')||q.includes('college')||q.includes('university')){
+    r="🏢 <b>Office/Daily ke liye:</b><br><br>• <b>BLANC AURA</b> - PKR 5,800 - Best office scent, fresh citrus jasmine, light, professional, summer ke liye perfect<br>• <b>NOIR ELIXIR</b> - PKR 6,500 - Meetings ke liye classy<br><br>Strong nahi, decent compliment milega.";
+  }
+  else if(q.includes('gift')||q.includes('tohfa')||q.includes('present')){
+    r="🎁 <b>Gift ke liye Best:</b><br><br>• Her: VELVET ROSE (bridal box) + NUDE EUPHORIA combo<br>• Him: TERRA INTENSE + NOIR ELIXIR combo<br>• Unisex Royal: OUD AL SULTAN (50ML pure oud - luxury gift)<br><br>Gift packing free! Card pe naam likh dete hain. WhatsApp 03716649231 pe 'Gift' likhein.";
+  }
+  else if(q.includes('sweet')||q.includes('meetha')||q.includes('fresh')||q.includes('strong')||q.includes('halki')||q.includes('type')||q.includes('fragrance')||q.includes('smell')||q.includes('khushbu')){
+    r="🌸 <b>Fragrance Types:</b><br><br>• <b>Sweet/Romantic:</b> Velvet Rose, Nude Euphoria<br>• <b>Strong/Dark/Oud:</b> Oud Al Sultan, Terra Intense, Noir Elixir<br>• <b>Fresh/Light:</b> Blanc Aura (citrus fresh)<br>• <b>Woody/Spicy:</b> Terra Intense (tobacco cognac)<br>• <b>Floral:</b> Velvet Rose, Nude Euphoria<br><br>Aapko kaisi pasand hai? Sweet, fresh ya strong?";
+  }
+  else if(q.includes('original')||q.includes('copy')||q.includes('asli')||q.includes('fake')||q.includes('imported')){
+    r="✅ <b>100% Original - LUXE Made:</b><br><br>• French perfume oils (Grasse, France)<br>• Dubai concentrated oils<br>• Pakistan me bottled - Maison LUXE<br>• No copy, no inspired - Our own creations<br>• Extrait de Parfum (not EDT)<br>• 30-40% oil concentration<br><br>Fake nahi, apna brand hai. 2000+ happy customers Alhamdulillah.";
+  }
+  else if(q.includes('delivery')||q.includes('multan')||q.includes('lahore')||q.includes('karachi')||q.includes('cod')||q.includes('paisay')||q.includes('payment')){
+  
